@@ -1,0 +1,25 @@
+inherit kf5
+
+NAME="kf5-kirigami2"
+VERSION=2.2.0
+RELEASE=1
+CATEGORY="KDE"
+SUMMARY="KDE portable application UI framework"
+DESCRIPTION="Kirigami is KDE’s lightweight user interface framework for mobile
+and convergent applications. It allows Qt developers to easily create applications
+that run on most major mobile and desktop platforms without modification."
+SRC_URI="mirror://kde/stable/kirigami/kirigami2-${VERSION}.tar.xz"
+SRC_DIR="kirigami2-${VERSION}"
+
+PKG_NAMES="${NAME} ${NAME}-devel"
+kf5_kirigami2_REQUIRES="qt5-quickcontrols2 breeze-icons"
+kf5_kirigami2_CONTENTS="
+	usr/lib/qt5/qml/org/kde/kirigami.2/
+	usr/share/doc/${NAME}
+	usr/share/locale/*/LC_MESSAGES/libkirigami2plugin_qt.qm
+"
+kf5_kirigami2_devel_REQUIRES=${NAME}
+kf5_kirigami2_devel_CONTENTS="
+	usr/lib/cmake/KF5Kirigami2/
+	usr/lib/qt5/mkspecs/modules/qt_Kirigami2.pri
+"
